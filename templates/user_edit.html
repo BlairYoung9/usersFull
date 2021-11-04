@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Add a User</h1>
-    <form action="/users/new" method="POST">
+    <h1>Edit {{users.first_name}} {{users.last_name}}</h1>
+    <form action="/users/{{users.id}}/update" method="POST">
         <label for="fname">First Name:</label>
         <input type="text" name="fname">
         <label for="lname">Last Name:</label>
@@ -17,8 +17,9 @@
         <input type="text" name="email">
         <label for="password" >Password:</label>
         <input type="text" name="password">
-        <input type="submit" value="Add User">
+        <input type="submit" value="Edit User">
     </form>
     <a href="http://localhost:5000/">Home</a>
+    <a href="users/{{one_user.id}}">Show User</a>
 </body>
 </html>

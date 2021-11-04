@@ -28,3 +28,21 @@ class User:
         query = "INSERT INTO users ( first_name , last_name , email , password, created_at, updated_at ) VALUES ( %(fname)s , %(lname)s , %(email)s , %(password)s, NOW() , NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL('users').query_db( query, data )
+
+    @classmethod
+    def get_one(cls, data:dict):
+        query = "SELECT * FROM users WHERE id = %(id)s"
+        results = connectToMySQL('users').query_db(query,data)
+        if not results:
+            return False
+        return cls(results[0])
+
+    @classmethod
+    def update_one(cls, data):
+        query = 'UPDATE users SET first_name=%(fname)s, last_name=%(lname)s, email=%(email)s, password = %(password)s WHERE id = %(id)s'
+        return connectToMySQL('users').query_db(query,data)
+
+    @classmethod
+    def delete_one(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s"
+        return connectToMySQL('users').query_db(query,data)

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>All Users</h1>
+    <h1>Selected Users</h1>
     <table>
         <thead>
             <tr>
@@ -18,18 +18,17 @@
             </tr>
         </thead>
         <tbody>
-            {% for one_user in users %}
                 <tr>
-                    <td>{{ one_user.first_name }}</td>
-                    <td>{{ one_user.last_name }}</td>
-                    <td>{{ one_user.email }}</td>
-                    <td>{{ one_user.password }}</td>
-                    <td><a href="users/{{one_user.id}}"> show |</a><a href="users/{{one_user.id}}/edit"> edit |</a><a href="users/{{one_user.id}}/delete"> delete </a></td>  
+                    <td>{{ users.first_name }}</td>
+                    <td>{{ users.last_name }}</td>
+                    <td>{{ users.email }}</td>
+                    <td>{{ users.password }}</td> 
+                    <td><a href="/users/{{users.id}}/edit">EDIT</a>
+                        <a href="/users/{{users.id}}/delete"> delete </a></td>                        
                     <hr>
-                    {% endfor %}                         
                 </tr>
         </tbody>
     </table>
-    <a href="http://localhost:5000/users/add">Add User</a>
+    <a href="http://localhost:5000/">Home</a>
 </body>
 </html>
