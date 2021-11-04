@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for one_user in users %}
+                <tr>
+                    <td>{{ one_user.first_name }}</td>
+                    <td>{{ one_user.last_name }}</td>
+                    <td>{{ one_user.email }}</td>
+                    <td>{{ one_user.password }}</td>
+                    <hr>
+                    {% endfor %}        
+                </tr>
+        </tbody>
+    </table>
+    <a href="http://localhost:5000/users/add">Add User</a>
+</body>
+</html>
